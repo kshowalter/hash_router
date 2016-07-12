@@ -1,0 +1,25 @@
+{
+  "name": "hash_router",
+  "version": "0.1.0",
+  "description": "It's a hash router",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kshowalter/hash_router.git"
+  },
+  "keywords": [
+    "hash",
+    "router"
+  ],
+  "author": "Keith Showalter",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/kshowalter/hash_router/issues"
+  },
+  "dependencies": {
+    "hash_router": "https://github.com/kshowalter/hash_router"
+  }
+}
