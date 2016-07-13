@@ -1,5 +1,9 @@
 module.exports = function(cb){
 
+  if( location.hash === '' || location.hash === '#' ){
+    location.hash = '/';
+  }
+
   function router(cb) {
     var request = location.hash.slice(2) || '';
 

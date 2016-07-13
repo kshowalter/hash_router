@@ -18,8 +18,5 @@
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/kshowalter/hash_router/issues"
-  },
-  "dependencies": {
-    "hash_router": "https://github.com/kshowalter/hash_router"
   }
 }
