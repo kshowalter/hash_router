@@ -1,15 +1,14 @@
 module.exports = function(cb){
-
   if( location.hash === '' || location.hash === '#' ){
     location.hash = '/';
   }
 
   function router(cb) {
     var request = location.hash.slice(2) || '';
-
     cb(request);
-
   }
+
+  router(cb);
 
   // Listen on hash change:
   window.addEventListener('hashchange', function(){
@@ -17,6 +16,7 @@ module.exports = function(cb){
   });
   // Listen on page load:
   window.addEventListener('load', function(){
+    console.log('*********')
     router(cb);
   });
 
