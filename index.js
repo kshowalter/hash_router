@@ -1,30 +1,32 @@
-module.exports = function(cb){
-  if( location.hash === '' || location.hash === '#' ){
-    location.hash = '/';
-  }
+export default function(action){
 
-  function router(cb) {
-    var request = location.hash.slice(2) || '';
-    cb(request);
-  }
+  function router(action) {
+    if( location.hash === '' || location.hash === '#' || location.hash === '#/' ){
+      action(false);
+    } else {
+      var url = location.hash.slice(2) || '/';
+      var values = url.split('/');
 
-  router(cb);
+      action(values[0]);
+
+    }
+  }
 
   // Listen on hash change:
   window.addEventListener('hashchange', function(){
-    router(cb);
+    router(action);
   });
   // Listen on page load:
   window.addEventListener('load', function(){
-    console.log('*********')
-    router(cb);
+    router(action);
   });
 
-  return function(location){
-    if( location instanceof String ){
-      window.location.hash = '#/' + location;
+  return function(new_route){
+    if( new_route instanceof String ){
+      window.location.hash = '#/' + new_route;
     } else {
-      console.warn('location not a string');
+      console.warn('new route not a string');
     }
   };
-};
+
+}
