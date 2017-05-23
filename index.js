@@ -1,24 +1,24 @@
-export default function(action){
+export default function(callback){
 
-  function router(action) {
+  function router(callback) {
     if( location.hash === '' || location.hash === '#' || location.hash === '#/' ){
-      action(false);
+      callback(false);
     } else {
       var url = location.hash.slice(2) || '/';
       var values = url.split('/');
 
-      action(values[0]);
+      callback(values[0]);
 
     }
   }
 
   // Listen on hash change:
   window.addEventListener('hashchange', function(){
-    router(action);
+    router(callback);
   });
   // Listen on page load:
   window.addEventListener('load', function(){
-    router(action);
+    router(callback);
   });
 
   return function(new_route){
