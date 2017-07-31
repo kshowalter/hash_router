@@ -23,10 +23,10 @@ export default function(callback){
   });
 
   return function(new_route){
-    if( new_route instanceof String ){
+    if( new_route.constructor === String ){
       window.location.hash = '#/' + new_route;
     } else {
-      console.warn('new route not a string');
+      console.warn('new route is not a string');
     }
   };
 
