@@ -2,12 +2,13 @@ export default function(callback){
 
   function router(callback) {
     if( location.hash === '' || location.hash === '#' || location.hash === '#/' ){
+      window.location.hash = '#/';
       callback(false);
     } else {
       var url = location.hash.slice(2) || '/';
       var values = url.split('/');
 
-      callback(values[0]);
+      callback(values);
 
     }
   }
