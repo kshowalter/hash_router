@@ -18,15 +18,16 @@ export default function(callback){
     router(callback);
   });
   // Listen on page load:
-  window.addEventListener('load', function(){
-    router(callback);
-  });
+  //window.addEventListener('load', function(){
+  //  router(callback);
+  //});
 
   return function(new_route){
-    if( new_route.constructor === String ){
+    if( new_route && new_route.constructor === String ){
       window.location.hash = '#/' + new_route;
     } else {
-      console.warn('new route is not a string');
+      router(callback);
+      //console.warn('new route is not a string');
     }
   };
 
